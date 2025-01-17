@@ -28,8 +28,10 @@ body {
 }
 
 .navbar .logo {
-  font-size: 24px;
+  font-size: 150px;
   font-weight: bold;
+  background-color: #403f3e;
+  width: 300px;
 }
 
 .nav-links {
@@ -60,13 +62,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgb(30, 29, 29);
   text-align: center;
+  background-image:url('./assets/Logo.png');
+  background-size: cover;
 }
 
 .hero-content h1 {
+  margin-top:-100px;
   font-size: 48px;
   margin-bottom: 20px;
+ 
 }
 
 .hero-content p {
@@ -273,4 +279,57 @@ color:aquamarine;
 
 .close-btn:hover {
 color: red;
+}
+
+
+/* Header Styles */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/* New logo-image class to style the logo as a circular image */
+.navbar .logo-image {
+  width: 70px; /* Adjust size of the logo image */
+  height: 70px; /* Make it a circle */
+  border-radius: 50%; /* Circular shape */
+  margin-right: 15px; /* Space between logo image and text */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.nav-links li a:hover {
+  background-color: #ff8c00;
 }

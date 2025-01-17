@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import { saveToFirebase } from './firebase';
+import logo from './assets/Logo.png';
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -37,15 +38,18 @@ function App() {
     <div className="App">
       {/* Header Section with Navigation */}
       <header className="header">
-        <nav className="navbar">
-          <div className="logo">Surgeet Travel</div>
-          <ul className="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+  <nav className="navbar">
+    <div className="logo">
+      <img src={logo} alt="Surgeet Travel Logo" className="logo-image" /> {/* Add the logo image */}
+      <div>Surgeet Travels</div>
+    </div>
+    <ul className="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
       {/* Hero Section */}
       <section className="hero">
