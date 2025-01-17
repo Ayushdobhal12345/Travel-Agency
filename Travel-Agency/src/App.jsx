@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
-import { saveToFirebase } from './firebase';
+
+import { saveUserData, saveBookingData } from './firebase';//handle popup and booking form
+
 import logo from './assets/Logo.png';
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [contactName, setContactName] = useState('');
+  const [contactPhone, setContactPhone] = useState('');
+  const [contactMessage, setContactMessage] = useState('');
 
   // Show popup after 8 seconds
   useEffect(() => {
@@ -17,17 +22,31 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Handle form submission
+  // Handle form submission for the popup form
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && phone) {
-      saveToFirebase(name, phone);
+      saveUserData(name, phone); // Save user data
       alert("Your data has been submitted!");
       setShowPopup(false); // Close the popup after submission
     } else {
       alert("Please fill in both fields.");
     }
   };
+ 
+  // Handle form submission for the contact form (booking data)
+const handleContactSubmit = (e) => {
+  e.preventDefault();
+  if (contactName && contactPhone && contactMessage) {
+    saveBookingData(contactName, contactPhone, contactMessage); // Save booking data
+    alert("Your message has been submitted!");
+    setContactName('');
+    setContactPhone('');
+    setContactMessage('');
+  } else {
+    alert("Please fill in all fields.");
+  }
+};
 
   // Handle closing the popup
   const handleClosePopup = () => {
@@ -38,18 +57,18 @@ function App() {
     <div className="App">
       {/* Header Section with Navigation */}
       <header className="header">
-  <nav className="navbar">
-    <div className="logo">
-      <img src={logo} alt="Surgeet Travel Logo" className="logo-image" /> {/* Add the logo image */}
-      <div>Surgeet Travels</div>
-    </div>
-    <ul className="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+        <nav className="navbar">
+          <div className="logo">
+            <img src={logo} alt="Surgeet Travel Logo" className="logo-image" />
+            <div>Surgeet Travels</div>
+          </div>
+          <ul className="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </nav>
+      </header>
 
       {/* Hero Section */}
       <section className="hero">
@@ -111,11 +130,28 @@ function App() {
       <section id="contact" className="contact">
         <div className="contact-content">
           <h2>Contact Us</h2>
-          <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" className="btn">Send Message</button>
+          <form onSubmit={handleContactSubmit}>
+            <input 
+              type="text" 
+              placeholder="Your Name" 
+              value={contactName} 
+              onChange={(e) => setContactName(e.target.value)} 
+              required 
+            />
+            <input 
+              type="number" 
+              placeholder="Your Phone no" 
+              value={contactPhone} 
+              onChange={(e) => setContactPhone(e.target.value)} 
+              required 
+            />
+            <textarea 
+              placeholder="Enter your queries here" 
+              value={contactMessage} 
+              onChange={(e) => setContactMessage(e.target.value)} 
+              required 
+            />
+            <button type="submit" className="btn">Submit</button>
           </form>
         </div>
       </section>
@@ -124,7 +160,7 @@ function App() {
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup">
-            <button style={{backgroundColor:"transparent", color:"black"}} className="close-btn" onClick={handleClosePopup}>&#10006;</button> {/* Cross button */}
+            <button style={{backgroundColor:"transparent", color:"black"}} className="close-btn" onClick={handleClosePopup}>&#10006;</button>
             <h3>Enter your details</h3>
             <form onSubmit={handleSubmit}>
               <input 
@@ -135,7 +171,7 @@ function App() {
                 required 
               />
               <input 
-                type="text" 
+                type="number" 
                 placeholder="Phone Number" 
                 value={phone} 
                 onChange={(e) => setPhone(e.target.value)} 
