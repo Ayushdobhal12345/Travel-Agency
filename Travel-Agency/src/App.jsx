@@ -236,10 +236,10 @@ function App() {
 
       {/* Fixed Icons */}
       <div className="fixed-icons">
-        <a href="tel:+123456789" className="fixed-icon call">
+        <a href="tel:+919536534140" className="fixed-icon call">
           <img src={callIcon} alt="Call Us" />
         </a>
-        <a href="https://wa.me/1234567890" className="fixed-icon whatsapp">
+        <a href="https://wa.me/9536534140" className="fixed-icon whatsapp">
           <img src={whatsappIcon} alt="Chat on WhatsApp" />
         </a>
       </div>
