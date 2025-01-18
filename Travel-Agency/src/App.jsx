@@ -4,7 +4,7 @@ import './App.css';
 import { saveUserData, saveBookingData } from './firebase'; // handle popup and booking form
 
 import logo from './assets/Logo.png';
-import destination1 from './assets/logo1.png'; // Example image
+import destination1 from './assets/Logo1.png'; // Example image
 import destination2 from './assets/menu-1.png'; // Example image
 import destination3 from './assets/menu-2.png'; // Example image
 import heroImage1 from './assets/home.png'; // Example hero image
