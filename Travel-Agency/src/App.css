@@ -42,6 +42,8 @@ body {
 
 .nav-links li {
   margin-left:50px;
+  height:30px;
+
 }
 
 .nav-links li a {
@@ -50,6 +52,7 @@ body {
   font-weight: 600px;
   padding: 8px 16px;
   border-radius: 5px;
+  
 }
 
 .nav-links li a:hover {
@@ -335,4 +338,74 @@ color: red;
 
 .nav-links li a:hover {
   background-color: #ff8c00;
+}
+
+
+
+.destination img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Fixed position icons for Call and WhatsApp */
+.fixed-icons {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.fixed-icon.call{
+  width: 90px;
+  height: 90px;
+
+}
+
+.fixed-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.call img,
+.whatsapp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Destination section with sliding image arrows */
+.destination-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.destination img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
