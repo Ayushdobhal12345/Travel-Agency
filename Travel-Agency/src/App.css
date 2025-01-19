@@ -19,6 +19,7 @@ body {
   color: white;
   padding: 20px;
   z-index: 1000;
+  
 }
 
 .navbar {
@@ -127,12 +128,16 @@ body {
 .services h2 {
   font-size: 36px;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .services-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+}
+.services-content h2{
+  text-align: center;
 }
 
 .service {
@@ -236,17 +241,8 @@ body {
   background-color: #e07b00;
 }
 
-/* Footer */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
 
-footer p {
-  font-size: 14px;
-}
+
 /* Add this to your CSS file */
 .popup-overlay {
 position: fixed;
@@ -341,59 +337,53 @@ color: red;
 }
 
 
-
-.destination img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Fixed position icons for Call and WhatsApp */
-.fixed-icons {
-  position: fixed;
-  bottom: 50px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-.fixed-icon.call{
-  width: 90px;
-  height: 90px;
+/* Destination Section */
+.destinations h2{
+  font-size:30px;
+  text-align: center;
 
 }
 
-.fixed-icon {
-  width: 70px;
-  height: 70px;
-}
-
-.call img,
-.whatsapp img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Destination section with sliding image arrows */
 .destination-slider {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  overflow: hidden;
+  width: 100%;
+  position: relative; /* To position the arrows inside the slider container */
+   
+}
+
+.slider-images {
+  display: flex;
+  transition: transform 1s ease;
+}
+
+.destination-item {
+  width:100%;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: transform 1s ease;
+  border-radius: 8px;
+}
+
+.destination-img {
+  width:550px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  border: none;
-  font-size: 2rem;
+  font-size: 30px;
   padding: 10px;
+  border: none;
   cursor: pointer;
+  z-index: 10; /* Ensure arrows are on top of other elements */
+  border-radius: 50%;
 }
 
 .arrow.left {
@@ -404,8 +394,238 @@ color: red;
   right: 10px;
 }
 
-.destination img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+.arrow:disabled {
+  background-color: rgba(0, 0, 0, 0.2); /* Fade when disabled */
+ 
 }
+/* Fixed position icons for Call and WhatsApp */
+.fixed-icons {
+  position: fixed;
+  bottom:-40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.fixed-icon.call{
+  
+  margin-top: -10px;
+
+}
+
+.fixed-icon {
+  
+  width: 200px;
+  height: 200px;
+}
+
+.call img,
+.whatsapp img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Top Header Styles */
+.top-header {
+  background-color: #949191; /* Dark background for contrast */
+  color: white;
+  padding: 10px 0;
+  z-index: 1000; /* Ensure it stays on top */
+  position: relative;
+  
+}
+
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; /* Space between contact items */
+ 
+}
+
+.contact-item {
+  display: flex;
+  align-items:center;
+  justify-content: space-evenly;
+  gap: 8px; /* Space between icon and text */
+  text-decoration: none;
+  color: white;
+  font-size: 16px; /* Adjust font size */
+}
+
+.contact-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.contact-item:hover {
+  color: #ff8c00; /* Change color on hover */
+}
+
+.contact-item:hover img {
+  filter: brightness(1.2); /* Light up icons on hover */
+}
+
+/* Scroll margin-top ensures content isn't hidden under fixed navbar */
+#about, #services, #destinations, #contact {
+  scroll-margin-top: 120px; /* Adjust based on your navbar height */
+}
+
+
+/* General Footer Styling */
+.footer {
+  background-color: #161716ea;
+  padding: 40px 0;
+  color:white;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Footer Section */
+.footer-section {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 45%;
+}
+
+.footer-content img {
+  max-width: 170px;
+  max-height: 170px;
+  margin-bottom: 15px;
+}
+
+.footer-content h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.footer-content a {
+  text-decoration: none;
+  color:white;
+  font-weight: bold;
+}
+
+/* Footer Info Section */
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  width: 25%;
+}
+
+.footer-logo img {
+  max-width: 100%;
+}
+
+.footer-links,
+.footer-tour-types,
+.footer-contact {
+  width: 20%;
+  margin-right: 30px;
+}
+
+.footer-links ul,
+.footer-tour-types ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-tour-types li {
+  margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-tour-types a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* Contact Section Styling */
+.footer-contact .contact-item {
+  display: flex;
+  align-items:flex-start;
+  margin-bottom: 15px;
+}
+
+.footer-contact .contact-item p {
+ text-align: right;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color:white;
+  background-color: black;
+  width: 100%;
+  height: 70px;
+}
+.footer-bottom p{
+  font-size: 1.2rem;
+  margin-top: 25px;
+  
+}
+
+/* Social Icons Styling */
+.footer-social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.footer-social-icons a:hover {
+  color: #007bff;
+}
+
+.footer-tour-types a:hover {
+  color: #007bff;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+.footer-contact p:hover{
+  color: #007bff;
+}
+
+
+.footer-social-icons .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social-icons h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: white;
+}
+
