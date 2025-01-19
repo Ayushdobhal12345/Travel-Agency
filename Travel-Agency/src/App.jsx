@@ -398,12 +398,12 @@ const destinationsPerPage = 3; // Show 3 images at a time
             <h2>Tour Types</h2>
             <br></br>
             <ul>
-              <li><a href="/honeymoon-tours">Honeymoon Tours</a></li>
-              <li><a href="/corporate-tours">Corporate Tours</a></li>
-              <li><a href="/group-tour">Group Tour</a></li>
-              <li><a href="/weekend-getaways">Weekend Getaways</a></li>
-              <li><a href="/backpacking-trips">Backpacking Trips</a></li>
-              <li><a href="/spiritual-tour">Spiritual Tour</a></li>
+              <li><a href="#">Honeymoon Tours</a></li>
+              <li><a href="#">Corporate Tours</a></li>
+              <li><a href="#">Group Tour</a></li>
+              <li><a href="#">Weekend Getaways</a></li>
+              <li><a href="#">Backpacking Trips</a></li>
+              <li><a href="#">Spiritual Tour</a></li>
             </ul>
           </div>
 
@@ -456,7 +456,7 @@ const destinationsPerPage = 3; // Show 3 images at a time
         <a href="tel:+919259247172" className="fixed-icon call">
           <img src={callIcon} alt="Call Us" />
         </a>
-        <a href="https://wa.me/9259247172" className="fixed-icon whatsapp">
+        <a href="https://wa.me/+919259247172" className="fixed-icon whatsapp">
           <img src={whatsappIcon} alt="Chat on WhatsApp" />
         </a>
       </div>
