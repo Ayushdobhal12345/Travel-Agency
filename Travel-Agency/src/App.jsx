@@ -148,15 +148,15 @@ const destinationsPerPage = 3; // Show 3 images at a time
           <div className="contact-info">
             <a href="tel:+919536534140" className="contact-item">
               <img src={PhoneIcon} alt="Phone" />
-              <span>+91 95365 34140</span>
+              <span>+91 9259247172</span>
             </a>
             <a href="mailto:info@surgeettravel.com" className="contact-item">
               <img src={emailIcon} alt="Email" />
-              <span>info@surgeettravel.com</span>
+              <span>surgeettravel2004@gmail.com</span>
             </a>
             <a href="https://www.instagram.com/surgeettravel.in" className="contact-item">
               <img src={instaIcon} alt="Instagram" />
-              <span>@surgeettravel</span>
+              <span>@surgeettravel.in</span>
             </a>
           </div>
         </div>
@@ -365,11 +365,11 @@ const destinationsPerPage = 3; // Show 3 images at a time
         <div className="footer-info">
           <div className="footer-logo">
             <a href="/" title="Home">
-              <img src={logo} alt="Safarnama Logo" />
+              <img src={logo} alt="Surgeet Travels" />
             </a>
             <p>
               One of the most reputed travel agencies in Dehradun with 2+ years of business experience. We provide
-              Customized Holidays, Sightseeing Services, Transport, and Hotel Booking Deals with Discounts.
+              Customized Holiday Packages,Tickets, Sightseeing Services, Transportation, and Hotel Booking Deals with Discounts.
             </p>
           </div>
 
@@ -413,7 +413,7 @@ const destinationsPerPage = 3; // Show 3 images at a time
 
             <div className="contact-item">
             <FontAwesomeIcon icon={faPhoneAlt} />
-              <p>+91 9536534140</p>
+              <p>+91 9259247172</p>
             </div>
             <div className="contact-item">     
            <FontAwesomeIcon icon={faEnvelope} />
@@ -453,10 +453,10 @@ const destinationsPerPage = 3; // Show 3 images at a time
 
       {/* Fixed Icons */}
       <div className="fixed-icons">
-        <a href="tel:+919536534140" className="fixed-icon call">
+        <a href="tel:+919259247172" className="fixed-icon call">
           <img src={callIcon} alt="Call Us" />
         </a>
-        <a href="https://wa.me/9536534140" className="fixed-icon whatsapp">
+        <a href="https://wa.me/9259247172" className="fixed-icon whatsapp">
           <img src={whatsappIcon} alt="Chat on WhatsApp" />
         </a>
       </div>
