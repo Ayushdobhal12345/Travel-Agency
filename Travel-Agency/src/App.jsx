@@ -243,7 +243,7 @@ const destinationsPerPage = 3; // Show 3 images at a time
       className="slider-images"
       style={{
         transform: `translateX(-${(currentDestination * 100) / destinationsPerPage}%)`,
-        transition: "transform 8s ease-in-out",
+        transition: "transform 20s ease-in-out",
       }}
     >
       {destinations.map((destination, index) => (
