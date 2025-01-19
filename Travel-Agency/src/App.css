@@ -1,3 +1,8 @@
+/* At the top of your CSS file */
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+
 /* General Styles */
 * {
   margin: 0;
@@ -119,49 +124,70 @@ body {
 }
 
 /* Services Section */
-.services {
-  background-color: #f7f7f7;
-  padding: 60px 20px;
-  text-align: center;
+/* Center the entire section */
+#services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centers everything horizontally */
+  justify-content: flex-start;  /* Aligns content at the top */
+  padding: 50px 20px;  /* Adds padding around the section */
 }
 
-.services h2 {
+/* Title styling for 'Our Services' */
+#services h2 {
   font-size: 36px;
-  margin-bottom: 30px;
-  text-align: center;
+  font-weight: bold;
+  margin-bottom: 40px;  /* Adds space below the title */
+  text-align: center;  /* Ensures title is centered */
+  color: #333;  /* Dark color for the title */
 }
 
+/* Center the content within the section */
 .services-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-.services-content h2{
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* Centers the service cards horizontally */
+  align-items: flex-start;  /* Aligns service cards at the top */
+  gap: 20px;  /* Space between the services */
 }
 
+/* Each service box */
 .service {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
+  width: 250px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.service img {
+/* Hover effect on service */
+.service:hover {
+  transform: translateY(-5px);
+}
+
+/* Service image styling */
+.service-image {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
+/* Service title */
 .service h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin: 10px 0;
 }
 
+/* Service description */
 .service p {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
 }
+
 
 /* Contact Section */
 .contact {
@@ -338,66 +364,77 @@ color: red;
 
 
 /* Destination Section */
-.destinations h2{
-  font-size:30px;
-  text-align: center;
+/* Add these styles to your App.css or your main CSS file */
 
-}
-
-.destination-slider {
-  display: flex;
-  overflow: hidden;
+.ourdestination {
+  padding: 0;
+  margin: 0;
   width: 100%;
-  position: relative; /* To position the arrows inside the slider container */
-   
-}
-
-.slider-images {
   display: flex;
-  transition: transform 1s ease;
+  justify-content: center;
+  align-items: center;
+  min-height: 700px;
+  background-color: #f8f8f8;
 }
 
-.destination-item {
+.destinations {
   width:100%;
-  padding: 10px;
-  box-sizing: border-box;
-  transition: transform 1s ease;
-  border-radius: 8px;
+  max-width: 1200px;
+  text-align: center;
 }
 
-.destination-img {
-  width:550px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-100%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 30px;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  z-index: 10; /* Ensure arrows are on top of other elements */
-  border-radius: 50%;
-}
-
-.arrow.left {
-  left: 10px;
-}
-
-.arrow.right {
-  right: 10px;
-}
-
-.arrow:disabled {
-  background-color: rgba(0, 0, 0, 0.2); /* Fade when disabled */
+.destination-image {
  
+  width: 100%;
+  height:400px;
+  border-radius: 10px;
+  object-fit: cover;
+  justify-content: space-evenly;
 }
+
+/* Style for the Slider */
+.slick-slider {
+  position: relative;
+}
+
+.slick-slide {
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+}
+
+.slick-prev,
+.slick-next {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background for arrows */
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.slick-prev {
+  position: absolute;
+  left: 10px; /* Position the previous arrow to the left */
+  top: 50%;
+  transform: translateX(-50%);
+}
+
+.slick-next {
+  position: absolute;
+  right: 10px; /* Position the next arrow to the right */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Make sure the arrows don't overlap with the images */
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
 /* Fixed position icons for Call and WhatsApp */
 .fixed-icons {
   position: fixed;

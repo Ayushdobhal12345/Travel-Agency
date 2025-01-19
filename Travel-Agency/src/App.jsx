@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
+import Slider from "react-slick";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -10,23 +11,31 @@ import logo from './assets/Logo.png';
 import destination1 from './assets/Baku.jpg'; // Example image
 import destination2 from './assets/Bali.jpg'; // Example image
 import destination3 from './assets/Thailand.jpg'; // Example image
-
 import destination4 from './assets/Goa.jpg'; // Example image
-import destination5 from './assets/Goa.jpg'; // Example image
-
+import destination5 from './assets/Dubai.jpg'; // Example image
 import destination6 from './assets/Rajasthan.jpg'; // Example image
 import destination7 from './assets/Srinagar.jpg'; // Example image
-import destination8 from './assets/Singapore.jpg'; // Example image
-
-import destination9 from './assets/Vietnam.jpg'; // Example image
+import destination8 from './assets/Thailand.jpg'; // Example image
+import destination9 from './assets/Singapore.jpg'; // Example image
 import destination10 from './assets/Vietnam.jpg'; // Example image
-
 import destination11 from './assets/Odisha.jpg'; // Example image
 import destination12 from './assets/Andaman.jpg'; // Example image
 import destination13 from './assets/Kerala.jpg'; // Example image
 
 
-import heroImage1 from './assets/home.png'; // Example hero image
+import service1 from './assets/Flights.jpg'; // Example image
+import service2 from './assets/Train.jpg'; // Example image
+import service3 from './assets/Bus.jpg'; // Example image
+import service4 from './assets/Hotel & Stay.jpg'; // Example image
+import service5 from './assets/Travel Visa.jpg'; // Example image
+import service6 from './assets/Travel Insurance.jpg'; // Example image
+import service7 from './assets/Passport.jpg'; // Example image
+import service8 from './assets/Holiday Vaccations.jpg'; // Example image
+
+
+
+
+
 import heroImage2 from './assets/badrinath.jpg'; // Example hero image
 import heroImage3 from './assets/kedarnath.jpg'; // Example hero image
 import heroImage4 from './assets/8905891.jpg'; // Example hero image
@@ -45,25 +54,56 @@ function App() {
   const [contactPhone, setContactPhone] = useState('');
   const [contactMessage, setContactMessage] = useState('');
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
-   const [currentDestination, setCurrentDestination] = useState(0);
-  const heroImages = [heroImage1, heroImage2, heroImage3, heroImage4, heroImage5];
+  
+  const heroImages = [destination7, heroImage2, heroImage3, heroImage4, heroImage5];
+  
+
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <button className="prev-arrow" onClick={onClick}>
+        Prev
+      </button>
+    );
+  };
+  
+  const NextArrow = ({ onClick }) => {
+    return (
+      <button className="next-arrow" onClick={onClick}>
+        Next
+      </button>
+    );
+  };
+  
+ 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: <PrevArrow />,  // Custom prev arrow component
+    nextArrow: <NextArrow />,  // Custom next arrow component
+    autoplay: true,  // Enable autoplay
+    autoplaySpeed: 3000,  // Set the speed for automatic slide change (in milliseconds)
+    pauseOnHover: false,  // Pause autoplay when hovered over
+  };
+  
   const destinations = [
-    { src: destination1, alt: "Baku", location: "Baku, Azerbaijan" },
-    { src: destination2, alt: "Bali", location: "Bali, Indonesia" },
-    { src: destination3, alt: "Thailand", location: "Thailand" },
-    { src: destination4, alt: "Goa", location: "Goa, India" },
-    { src: destination5, alt: "Goa", location: "Goa, India" },
-    { src: destination6, alt: "Rajasthan", location: "Rajasthan, India" },
-    { src: destination7, alt: "Srinagar", location: "Srinagar, India" },
-    { src: destination8, alt: "Singapore", location: "Singapore" },
-    { src: destination9, alt: "Vietnam", location: "Vietnam" },
-    { src: destination10, alt: "Vietnam", location: "Vietnam" },
-    { src: destination11, alt: "Odisha", location: "Odisha, India" },
-    { src: destination12, alt: "Andaman", location: "Andaman, India" },
-    { src: destination13, alt: "Kerala", location: "Kerala, India" }
+    { id: 1, image: destination1, alt: "Baku", location: "Baku" },
+    { id: 2, image: destination2, alt: "Bali", location: "Bali" },
+    { id: 3, image: destination3, alt: "Thailand", location: "Thailand" },
+    { id: 4, image: destination4, alt: "Goa", location: "Goa" },
+    { id: 5, image: destination5, alt: "Dubai", location: "Dubai" },
+    { id: 6, image: destination6, alt: "Rajasthan", location: "Rajasthan" },
+    { id: 7, image: destination7, alt: "Srinagar", location: "Srinagar" },
+    { id: 8, image: destination8, alt: "Thailand", location: "Thailand" },
+    { id: 9, image: destination9, alt: "Singapore", location: "Singapore" },
+    { id: 10, image: destination10, alt: "Vietnam", location: "Vietnam" },
+    { id: 11, image: destination11, alt: "Odisha", location: "Odisha" },
+    { id: 12, image: destination12, alt: "Andaman", location: "Andaman" },
+    { id: 13, image: destination13, alt: "Kerala", location: "Kerala" }
   ];
-  
-  
+
   
   // Show popup after 8 seconds
   useEffect(() => {
@@ -114,31 +154,7 @@ function App() {
     setShowPopup(false);
   };
 
- // Auto slide for Destinations
- useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentDestination(prev => (prev + 1) % Math.ceil(destinations.length / 3));
-  }, 5000);
-
-  return () => clearInterval(interval);
-}, [destinations.length]);
-
-
-
-const destinationsPerPage = 3; // Show 3 images at a time
-
-  const nextDestination = () => {
-    if (currentDestination < Math.ceil(destinations.length / destinationsPerPage) - 1) {
-      setCurrentDestination(currentDestination + 1);
-    }
-  };
-
-  const prevDestination = () => {
-    if (currentDestination > 0) {
-      setCurrentDestination(currentDestination - 1);
-    }
-  };
-
+ 
 
   return (
     <div className="App">
@@ -173,7 +189,7 @@ const destinationsPerPage = 3; // Show 3 images at a time
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#destinations">Destinations</a></li> {/* New link */}
+            <li><a href="#ourdestination">Destinations</a></li> {/* New link */}
             <li style={{backgroundColor:"red", paddingTop:"7px", marginTop:"-5px", borderRadius:"4px"}}><a href="#contact">Book Now</a></li>
           </ul>
         </nav>
@@ -202,70 +218,81 @@ const destinationsPerPage = 3; // Show 3 images at a time
 
       {/* Services Section */}
       <section id="services" className="services">
-        <div className="services-content">
-          <h2>Our Services</h2>
-          <div className="service">
-            <h3>Flight Tickets</h3>
-            <p>We provide the best deals on flight tickets, ensuring you travel with comfort and convenience at the best prices.</p>
-          </div>
-          <div className="service">
-            <h3>Train Tickets & Cab/Bus Booking</h3>
-            <p>Book train tickets, cabs, and buses seamlessly through our platform for a comfortable journey.</p>
-          </div>
-          <div className="service">
-            <h3>Hotel & Accommodation</h3>
-            <p>We offer a wide range of hotel options, from budget to luxury, to suit your accommodation needs.</p>
-          </div>
-          <div className="service">
-            <h3>Tourist Visa Assistance</h3>
-            <p>Get expert assistance for obtaining tourist visas for various countries with our hassle-free services.</p>
-          </div>
-          <div className="service">
-            <h3>Travel Insurance</h3>
-            <p>Protect your trip with our reliable travel insurance packages, covering medical emergencies and trip cancellations.</p>
-          </div>
-          <div className="service">
-            <h3>Passport Services</h3>
-            <p>We assist with passport application, renewal, and other passport-related services to make your travel stress-free.</p>
-          </div>
-          <div className="service">
-            <h3>Holiday Packages</h3>
-            <p>Choose from a variety of exciting holiday packages that cater to different travel interests and budgets.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Destinations Section with Slider */}
-      <section id="destinations" className="destinations">
-  <h2>Our Popular Destinations</h2>
-  <div className="destination-slider">
-    <div
-      className="slider-images"
-      style={{
-        transform: `translateX(-${(currentDestination * 100) / destinationsPerPage}%)`,
-        transition: "transform 20s ease-in-out",
-      }}
-    >
-      {destinations.map((destination, index) => (
-        <div className="destination-item" key={index}>
-          <img src={destination.src} alt={destination.alt} className="destination-img" />
-          <div className="destination-location">
-            <center><h3>{destination.location}</h3></center>
-          </div>
-        </div>
-      ))}
+      <h2>Our Services</h2>
+  <div className="services-content">
+   
+    <div className="service">
+      <img src={service1 }alt="Flight Tickets" className="service-image" />
+      <h3>Flight Tickets</h3>
+      <p>We provide the best deals on flight tickets, ensuring you travel with comfort and convenience at the best prices.</p>
     </div>
 
-    {/* Manual Navigation arrows */}
-    <button className="arrow left" onClick={prevDestination} disabled={currentDestination === 0}>
-      &#8249;
-    </button>
-    <button className="arrow right" onClick={nextDestination} disabled={currentDestination >= Math.ceil(destinations.length / destinationsPerPage) - 1}>
-      &#8250;
-    </button>
+    <div className="service">
+      <img src={service2 }alt="Train Tickets & Cab/Bus Booking" className="service-image" />
+      <h3>Train Tickets Booking</h3>
+      <p>Book train tickets seamlessly through our platform for a comfortable journey.</p>
+    </div>
+    <div className="service">
+      <img src={service3 }alt="Train Tickets & Cab/Bus Booking" className="service-image" />
+      <h3> Cab/Bus Booking</h3>
+      <p>Book cabs, and buses seamlessly through our platform for a comfortable journey.</p>
+    </div>
+
+    <div className="service">
+      <img src={service4 } alt="Hotel & Accommodation" className="service-image" />
+      <h3>Hotel & Accommodation</h3>
+      <p>We offer a wide range of hotel options, from budget to luxury, to suit your accommodation needs.</p>
+    </div>
+
+    <div className="service">
+      <img src={service5 } alt="Tourist Visa Assistance" className="service-image" />
+      <h3>Tourist Visa Assistance</h3>
+      <p>Get expert assistance for obtaining tourist visas for various countries with our hassle-free services.</p>
+    </div>
+
+    <div className="service">
+      <img src={service6 } alt="Travel Insurance" className="service-image" />
+      <h3>Travel Insurance</h3>
+      <p>Protect your trip with our reliable travel insurance packages, covering medical emergencies and trip cancellations.</p>
+    </div>
+
+    <div className="service">
+      <img src={service7 } alt="Passport Services" className="service-image" />
+      <h3>Passport Services</h3>
+      <p>We assist with passport application, renewal, and other passport-related services to make your travel stress-free.</p>
+    </div>
+
+    <div className="service">
+      <img src={service8 } alt="Holiday Packages" className="service-image" />
+      <h3>Holiday Packages</h3>
+      <p>Choose from a variety of exciting holiday packages that cater to different travel interests and budgets.</p>
+    </div>
   </div>
 </section>
 
+
+
+      {/* Destinations Section with Slider */}
+      <br></br>
+      <br></br>
+      <div id="ourdestination" className="ourdestination">
+      <div className="destinations">
+        <h1>Our Destinations</h1>
+        <br></br>
+        <Slider {...settings}>
+          {destinations.map((destination) => (
+            <div key={destination.id} className="destination">
+              <img
+                src={destination.image}
+                alt={destination.alt}
+                className="destination-image"
+              />
+              <div style={{color:"black",fontSize:"20px"}}>{destination.location}</div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
 
 
       {/* Contact Section */}
