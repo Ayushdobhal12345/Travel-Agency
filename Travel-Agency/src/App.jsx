@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Slider from "react-slick";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; // Importing FontAwesome icons
 import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { saveUserData, saveBookingData } from './firebase'; // handle popup and booking form
@@ -33,9 +35,6 @@ import service7 from './assets/Passport.jpg'; // Example image
 import service8 from './assets/Holiday Vaccations.jpg'; // Example image
 
 
-
-
-
 import heroImage2 from './assets/badrinath.jpg'; // Example hero image
 import heroImage3 from './assets/kedarnath.jpg'; // Example hero image
 import heroImage4 from './assets/8905891.jpg'; // Example hero image
@@ -58,35 +57,19 @@ function App() {
   const heroImages = [destination7, heroImage2, heroImage3, heroImage4, heroImage5];
   
 
-  const PrevArrow = ({ onClick }) => {
-    return (
-      <button className="prev-arrow" onClick={onClick}>
-        Prev
-      </button>
-    );
-  };
-  
-  const NextArrow = ({ onClick }) => {
-    return (
-      <button className="next-arrow" onClick={onClick}>
-        Next
-      </button>
-    );
-  };
-  
  
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <PrevArrow />,  // Custom prev arrow component
-    nextArrow: <NextArrow />,  // Custom next arrow component
-    autoplay: true,  // Enable autoplay
-    autoplaySpeed: 3000,  // Set the speed for automatic slide change (in milliseconds)
-    pauseOnHover: false,  // Pause autoplay when hovered over
-  };
+ 
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,  // Speed of slide transition in milliseconds
+  pauseOnHover: false,
+};
+
   
   const destinations = [
     { id: 1, image: destination1, alt: "Baku", location: "Baku" },
@@ -104,6 +87,8 @@ function App() {
     { id: 13, image: destination13, alt: "Kerala", location: "Kerala" }
   ];
 
+
+  
   
   // Show popup after 8 seconds
   useEffect(() => {
@@ -189,7 +174,8 @@ function App() {
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#ourdestination">Destinations</a></li> {/* New link */}
+            <li><a href="#ourdestination">Destinations</a></li> 
+            <li><a href="#contact-container1">Contact Us</a></li> 
             <li style={{backgroundColor:"red", paddingTop:"7px", marginTop:"-5px", borderRadius:"4px"}}><a href="#contact">Book Now</a></li>
           </ul>
         </nav>
@@ -273,12 +259,10 @@ function App() {
 
 
       {/* Destinations Section with Slider */}
-      <br></br>
-      <br></br>
-      <div id="ourdestination" className="ourdestination">
+      <section id="ourdestination" className="ourdestination">
       <div className="destinations">
-        <h1>Our Destinations</h1>
-        <br></br>
+        <h2>Our Destinations</h2>
+        <br />
         <Slider {...settings}>
           {destinations.map((destination) => (
             <div key={destination.id} className="destination">
@@ -287,18 +271,87 @@ function App() {
                 alt={destination.alt}
                 className="destination-image"
               />
-              <div style={{color:"black",fontSize:"20px"}}>{destination.location}</div>
+              <div style={{ color: 'black', fontSize: '20px',backgroundColor:"grey", borderRadius:"8px" }}>
+                {destination.location}
+              </div>
             </div>
           ))}
         </Slider>
       </div>
-    </div>
+    </section>
+
+    {/* contact us */}
+  
+    <section  id="contact-container1"  className="contact-container1">
+      <div className="contact-column">
+        <div className="contact-widget-wrap">
+          <div className="contact-heading">
+            <div className="contact-content">
+              {/* Sub-title with icon */}
+              <div className="contact-sub-title">
+                <span className="contact-tagline">
+                  <FaPhoneAlt /> Contact Us
+                </span>
+              </div>
+
+              {/* Title */}
+              <h2 className="contact-title">
+                <span>Ready to experience our top-notch services?</span>
+              </h2>
+
+              {/* Description */}
+              <div className="contact-desc">
+                Don’t hesitate to reach out to us!
+              </div>
+
+              {/* Address, Email, and Phone Number Section */}
+              <div className="contact-details">
+                {/* Address Section */}
+                <div className="contact-item1 address1">
+                  <FaMapMarkerAlt className="contact-icon" />
+                  <div className="contact-info">
+                    <strong>Our Office</strong>
+                    <p>
+                      <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">
+                      Raipur, Dehradun, Uttarakhand 248008
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Email Section */}
+                <div className="contact-item1 email1">
+                  <FaEnvelope className="contact-icon" />
+                  <div className="contact-info">
+                    <strong>Email Us</strong>
+                    <p>
+                      <a href="mailto:surgeettravel2004@gmail.com">surgeettravel2004@gmail.com</a>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Phone Section */}
+                <div className="contact-item1 phone1">
+                  <FaPhoneAlt className="contact-icon" />
+                  <div className="contact-info">
+                    <strong>Call Us</strong>
+                    <p>
+                      <a href="tel:+1234567890">+919259247172</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
-      {/* Contact Section */}
+      {/* booking section with contact name */}
       <section id="contact" className="contact">
         <div className="contact-content">
-          <h2>Contact Us</h2>
+          <h2>Book Now </h2>
           <form onSubmit={handleContactSubmit}>
             <input 
               type="text" 
@@ -440,7 +493,7 @@ function App() {
 
             <div className="contact-item">
             <FontAwesomeIcon icon={faPhoneAlt} />
-              <p>+91 9259247172</p>
+              <p>+919259247172</p>
             </div>
             <div className="contact-item">     
            <FontAwesomeIcon icon={faEnvelope} />

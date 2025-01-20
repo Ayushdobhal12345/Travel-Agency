@@ -3,6 +3,10 @@
 @import 'slick-carousel/slick/slick-theme.css';
 
 
+html {
+  scroll-behavior: smooth;  /* Ensures smooth scrolling to the anchor */
+}
+
 /* General Styles */
 * {
   margin: 0;
@@ -153,7 +157,7 @@ body {
 
 /* Each service box */
 .service {
-  width: 250px;
+  width: 300px;
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -164,7 +168,7 @@ body {
 
 /* Hover effect on service */
 .service:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 /* Service image styling */
@@ -175,6 +179,7 @@ body {
   border-radius: 8px;
   margin-bottom: 15px;
 }
+
 
 /* Service title */
 .service h3 {
@@ -191,22 +196,27 @@ body {
 
 /* Contact Section */
 .contact {
-  background-color: white;
+  background-color: rgba(159, 160, 160, 0.227);
   padding: 60px 20px;
   text-align: center;
+  height:500px;
 }
 
 .contact form {
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: 0 auto;
+  align-items: center;
 }
 
 .contact input, .contact textarea {
-  width: 100%;
+  width: 80%;
   padding: 15px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size:large;
 }
 
 .contact button {
@@ -364,11 +374,17 @@ color: red;
 
 
 /* Destination Section */
-/* Add these styles to your App.css or your main CSS file */
+/* Section styling for #ourdestination */
+#ourdestination h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;  /* Adds space below the title */
+  text-align: center;  /* Ensures the title is centered */
+  color: #333;  /* Dark color for the title */
+}
 
 .ourdestination {
-  padding: 0;
-  margin: 0;
+  padding: 50px 20px; 
   width: 100%;
   display: flex;
   justify-content: center;
@@ -377,19 +393,25 @@ color: red;
   background-color: #f8f8f8;
 }
 
+/* Container for the destinations */
 .destinations {
-  width:100%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1600px;  /* Maximum width for the container */
   text-align: center;
 }
 
+/* Styling for destination images */
 .destination-image {
- 
   width: 100%;
-  height:400px;
+  height: 400px;
   border-radius: 10px;
   object-fit: cover;
-  justify-content: space-evenly;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for destination images */
+.destination-image:hover {
+  transform: scale(0.9); /* Scale up the image slightly on hover */
 }
 
 /* Style for the Slider */
@@ -399,39 +421,85 @@ color: red;
 
 .slick-slide {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: center; /* Align slide items center */
   align-items: center;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px;  /* Adjust the font-size for larger arrows */
+  color: white;     /* Change arrow color */
+      /* Default content to empty to use arrow images */
+      padding: 20px;
+}
 .slick-prev,
 .slick-next {
-  background-color: rgba(0, 0, 0, 0.5); /* Dark background for arrows */
+  
   border: none;
   color: white;
-  font-size: 18px;
-  padding: 10px;
+  font-size: 0px;  /* Increased font size for bigger arrows */
+  /* Increased padding for bigger arrows */
   cursor: pointer;
   z-index: 1;
+  border-radius: 50%; /* Round the arrows for better appearance */
 }
 
 .slick-prev {
   position: absolute;
-  left: 10px; /* Position the previous arrow to the left */
+  font-size:0px;
+  left: 40px; /* Position the previous arrow to the left */
   top: 50%;
-  transform: translateX(-50%);
+  transform: translateY(-50%); /* Vertically center the arrow */
 }
 
 .slick-next {
   position: absolute;
-  right: 10px; /* Position the next arrow to the right */
+  right: 70px; /* Position the next arrow to the right */
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); /* Vertically center the arrow */
 }
 
-/* Make sure the arrows don't overlap with the images */
-.slick-prev:hover,
-.slick-next:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+
+/* Custom dots styling */
+.slick-dots {
+  margin-top: 0px;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;  /* Center the dots */
+  z-index: 1;
+}
+
+.slick-dots li button:before {
+  font-size: 14px;
+  margin-top: 50px;
+  color: #333;  /* Dot color */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #0f0f0f;  /* Active dot color */
+}
+
+/* Adjusting the layout of the slider for responsiveness */
+@media (max-width: 768px) {
+  .slick-slide {
+    /* Stack the slides on smaller screens */
+    width: 100% !important;
+  }
+
+  /* Show only one slide at a time on smaller screens */
+  .slick-slider {
+    width: 100% !important;
+  }
+
+  .slick-prev,
+  .slick-next {
+    font-size: 0px;  /* Slightly smaller arrows for mobile */
+    padding: 15px;
+  }
+
+  .destination-image {
+    height: 300px;  /* Reduce the height of the images for smaller screens */
+  }
 }
 
 
@@ -509,7 +577,7 @@ color: red;
 }
 
 /* Scroll margin-top ensures content isn't hidden under fixed navbar */
-#about, #services, #destinations, #contact {
+#about, #services,#contact-container1, #ourdestination, #contact {
   scroll-margin-top: 120px; /* Adjust based on your navbar height */
 }
 
@@ -666,3 +734,200 @@ color: red;
   color: white;
 }
 
+/* Section Background Styling */
+.elementor-widget-container {
+  background-color: #f9f9f9;  /* Light grey background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sub-Title Styling with Icon */
+.sub-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sub-title .tagline {
+  margin-left: 10px;
+}
+
+.sub-title i {
+  font-size: 24px;
+  color: #ff6f61;  /* Accent color for icon */
+}
+
+/* Title Styling */
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.4;
+}
+
+.title span {
+  color: #ff6f61;  /* Accent color for the title */
+}
+
+/* Description Styling */
+.title-desc {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+}
+
+
+
+/* Main Container for Contact us Section */
+.contact-container1 {
+  padding: 40px;
+  background-color: #f9f9f9;  /* Light grey background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 600px;
+}
+
+/* Sub-title Styling with Icon */
+.contact-sub-title {
+  font-size: 40px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-sub-title .contact-tagline {
+  margin-left: 10px;
+}
+
+.contact-sub-title i {
+  font-size: 24px;
+  color: #ff6f61;  /* Accent color for icon */
+}
+
+/* Title Styling */
+.contact-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.4;
+}
+
+.contact-title span {
+  color: #ff6f61;  /* Accent color for the title */
+}
+
+/* Description Styling */
+.contact-desc {
+  font-size: 26px;
+  color: #666;
+  margin-top: 10px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+}
+
+/* Contact Details Styling */
+.contact-details {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Individual Contact Item */
+.contact-item1 {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 32%;
+  margin: 10px 0;
+  height: 300px;
+}
+
+.contact-item1 .contact-icon {
+  font-size: 70px;
+  color: #ff6f61;  /* Icon color */
+  margin-right: 15px;
+}
+
+.contact-item1 .contact-info {
+  color: #333;
+}
+
+.contact-item1 .contact-info strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-item1 .contact-info p {
+  font-size: 22px;
+}
+
+/* Contact Item Background Colors */
+.address1 {
+  background-color: #e1f7d5;  /* Light green */
+}
+
+.email1 {
+  background-color: #d1e9f7;  /* Light blue */
+}
+
+.phone1 {
+  background-color: #ffe3e3;  /* Light pink */
+}
+
+/* Styling for Hyperlinks */
+.contact-item1 a {
+  color: #ff6f61;  /* Accent color for links */
+  text-decoration: none;
+}
+
+.contact-item1 a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .contact-sub-title {
+    font-size: 16px;
+  }
+
+  .contact-title {
+    font-size: 28px;
+  }
+
+  .contact-desc {
+    font-size: 14px;
+  }
+
+  .contact-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-item1 {
+    width: 80%;
+    margin: 10px 0;
+  }
+}
+
+/* Hover effect for the entire container */
+.contact-container:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease-in-out;
+}
