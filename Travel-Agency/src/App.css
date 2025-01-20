@@ -693,7 +693,7 @@ color: red;
   height: 70px;
 }
 .footer-bottom p{
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 25px;
   
 }
@@ -900,7 +900,7 @@ color: red;
 .contact-item1 a:hover {
   text-decoration: underline;
 }
-
+/*======================================================================================== */
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .contact-sub-title {
@@ -930,4 +930,274 @@ color: red;
 .contact-container:hover {
   transform: scale(1.03);
   transition: all 0.3s ease-in-out;
+}
+#why-choose {
+  text-align: center;
+  padding: 50px 0;
+  width: 100%;
+  height: 700px;
+}
+
+#why-choose h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;  /* Adds space below the title */
+  text-align: center;  /* Ensures the title is centered */
+  color: #333;  /* Dark color for the title */
+}
+
+#why-choose-img img {
+  width: 90%;
+  height: 500px;
+  object-fit: cover; /* Ensures the image covers the entire container area */
+  display: block;
+  margin: 0 auto; /* Centers the image horizontally */
+}
+
+@media (max-width: 768px) {
+  /* Adjust header logo size and navbar layout */
+  .navbar .logo {
+    font-size: 32px;
+    width: 150px;
+  }
+  .navbar .logo-image {
+    width: 50px; /* Adjust logo size */
+    height: 50px;
+  }
+
+  .nav-links {
+    margin-right: 0;
+  }
+  
+  .nav-links li {
+    margin-left: 15px;
+  }
+
+  /* Hero Section */
+  .hero {
+    background-size: 100% 100%; /* Make background cover the screen more effectively */
+    margin-top: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .hero .btn {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
+
+  /* Services Section */
+  #services h2 {
+    font-size: 30px;
+  }
+
+  .service {
+    width: 100%; /* Stack service cards vertically on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .service-image {
+    height: 200px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    padding: 10px;
+  }
+
+  /* Contact Section */
+  .contact-container1 {
+    padding: 20px;
+    height: auto;
+  }
+
+  .contact-container1 .contact-title {
+    font-size: 28px;
+  }
+
+  .contact-item1 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Footer Styles */
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-links,
+  .footer-tour-types,
+  .footer-contact {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo img {
+    max-width: 120px;
+  }
+
+  /* Fixed icons */
+  .fixed-icons {
+    flex-direction: column;
+    bottom: 10px;
+  }
+
+  .fixed-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+  }
+
+  /* Destination Section */
+  .destination-image {
+    height: 250px;
+  }
+
+  .slick-dots li button:before {
+    font-size: 12px; /* Smaller dots for mobile */
+  }
+
+  /* Contact Form adjustments */
+  .contact form {
+    width: 90%;
+  }
+
+  .contact input,
+  .contact textarea {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .contact button {
+    padding: 12px 25px;
+  }
+
+  /* Popup adjustments for mobile */
+  .popup {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smaller screen specific adjustments */
+  .navbar .logo {
+    font-size: 24px;
+    width: 120px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-info .footer-column {
+    width: 100%;
+  }
+
+  .footer-column h2 {
+    font-size: 20px;
+  }
+
+  /* Adjust service section further */
+  .service {
+    width: 100%;
+    padding: 15px;
+    box-shadow: none;
+    border: none;
+  }
+
+  .slick-slider {
+    width: 100%;
+  }
+
+  .contact-container1 .contact-title {
+    font-size: 24px;
+  }
+
+  .contact-item1 {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .contact-item1 .contact-icon {
+    font-size: 50px;
+  }
+
+  /* Adjust destination images */
+  .destination-image {
+    height: 200px;
+  }
+
+  /* Footer adjustments */
+  .footer-bottom {
+    font-size: 0.8rem;
+  }
+
+  .footer-social-icons a {
+    font-size: 1.2rem;
+  }
+  /* Adjust Top Header Styles */
+.top-header {
+  background-color: #949191;
+  color: white;
+  padding: 5px 0;  /* Reduced height by decreasing top and bottom padding */
+  font-size: 14px;  /* Smaller font size for better fit */
+  z-index: 1000;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;  /* Reduced gap between items */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;  /* Space between icon and text */
+  text-decoration: none;
+  color: white;
+  font-size: 14px;  /* Smaller font size for single line fit */
+}
+
+.contact-item img {
+  width: 20px;  /* Adjusted icon size for compact view */
+  height: 20px;
+}
+
 }

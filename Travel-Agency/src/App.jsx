@@ -10,6 +10,7 @@ import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-
 import { saveUserData, saveBookingData } from './firebase'; // handle popup and booking form
 
 import logo from './assets/Logo.png';
+import Whychoose from './assets/Whychoose.png';
 import destination1 from './assets/Baku.jpg'; // Example image
 import destination2 from './assets/Bali.jpg'; // Example image
 import destination3 from './assets/Thailand.jpg'; // Example image
@@ -72,19 +73,19 @@ const settings = {
 
   
   const destinations = [
-    { id: 1, image: destination1, alt: "Baku", location: "Baku" },
-    { id: 2, image: destination2, alt: "Bali", location: "Bali" },
-    { id: 3, image: destination3, alt: "Thailand", location: "Thailand" },
-    { id: 4, image: destination4, alt: "Goa", location: "Goa" },
-    { id: 5, image: destination5, alt: "Dubai", location: "Dubai" },
-    { id: 6, image: destination6, alt: "Rajasthan", location: "Rajasthan" },
-    { id: 7, image: destination7, alt: "Srinagar", location: "Srinagar" },
-    { id: 8, image: destination8, alt: "Thailand", location: "Thailand" },
-    { id: 9, image: destination9, alt: "Singapore", location: "Singapore" },
-    { id: 10, image: destination10, alt: "Vietnam", location: "Vietnam" },
-    { id: 11, image: destination11, alt: "Odisha", location: "Odisha" },
-    { id: 12, image: destination12, alt: "Andaman", location: "Andaman" },
-    { id: 13, image: destination13, alt: "Kerala", location: "Kerala" }
+    { id: 1, image: destination1, alt: "Baku", location: "Baku" ,loading:"lazy"},
+    { id: 2, image: destination2, alt: "Bali", location: "Bali" ,loading:"lazy"},
+    { id: 3, image: destination3, alt: "Thailand", location: "Thailand",loading:"lazy" },
+    { id: 4, image: destination4, alt: "Goa", location: "Goa",loading:"lazy" },
+    { id: 5, image: destination5, alt: "Dubai", location: "Dubai",loading:"lazy" },
+    { id: 6, image: destination6, alt: "Rajasthan", location: "Rajasthan",loading:"lazy" },
+    { id: 7, image: destination7, alt: "Srinagar", location: "Srinagar",loading:"lazy" },
+    { id: 8, image: destination8, alt: "Thailand", location: "Thailand",loading:"lazy" },
+    { id: 9, image: destination9, alt: "Singapore", location: "Singapore",loading:"lazy" },
+    { id: 10, image: destination10, alt: "Vietnam", location: "Vietnam",loading:"lazy" },
+    { id: 11, image: destination11, alt: "Odisha", location: "Odisha",loading:"lazy" },
+    { id: 12, image: destination12, alt: "Andaman", location: "Andaman",loading:"lazy" },
+    { id: 13, image: destination13, alt: "Kerala", location: "Kerala",loading:"lazy" }
   ];
 
 
@@ -168,7 +169,7 @@ const settings = {
         <nav className="navbar">
           <div className="logo">
             <img src={logo} alt="Surgeet Travel Logo" className="logo-image" />
-            <div>Surgeet Travels</div>
+            <div>Surgeet Travel</div>
           </div>
           <ul className="nav-links">
             <li><a href="#">Home</a></li>
@@ -182,13 +183,14 @@ const settings = {
       </header>
 
       {/* Hero Section with Changing Background */}
-      <section className="hero" style={{ backgroundImage: `url(${heroImages[currentHeroImage]})` }}>
+      <section className="hero" style={{ backgroundImage: `url(${heroImages[currentHeroImage]})` ,loading:"lazy" }}>
         <div className="hero-content">
           <h1>Welcome to Surgeet Travel Agency</h1>
           <p>Explore the World with Our Expert Travel Solutions</p>
           <a href="#services" className="btn">Discover Services</a>
         </div>
       </section>
+
 
       {/* About Section */}
       <section id="about" className="about">
@@ -201,6 +203,17 @@ const settings = {
           </p>
         </div>
       </section>
+{/* why choose Section */}
+
+<section id="why-choose">
+  <h2>Why Choose Surgeet Travel..?</h2>
+  <div id="why-choose-img">
+    <img src={Whychoose}alt="Why Choose Surgeet Travel" loading="lazy"/>
+  </div>
+</section>
+
+
+
 
       {/* Services Section */}
       <section id="services" className="services">
@@ -208,48 +221,48 @@ const settings = {
   <div className="services-content">
    
     <div className="service">
-      <img src={service1 }alt="Flight Tickets" className="service-image" />
+      <img src={service1 }alt="Flight Tickets" className="service-image" loading="lazy" />
       <h3>Flight Tickets</h3>
       <p>We provide the best deals on flight tickets, ensuring you travel with comfort and convenience at the best prices.</p>
     </div>
 
     <div className="service">
-      <img src={service2 }alt="Train Tickets & Cab/Bus Booking" className="service-image" />
+      <img src={service2 }alt="Train Tickets & Cab/Bus Booking" className="service-image" loading="lazy" />
       <h3>Train Tickets Booking</h3>
       <p>Book train tickets seamlessly through our platform for a comfortable journey.</p>
     </div>
     <div className="service">
-      <img src={service3 }alt="Train Tickets & Cab/Bus Booking" className="service-image" />
+      <img src={service3 }alt="Train Tickets & Cab/Bus Booking" className="service-image"loading="lazy" />
       <h3> Cab/Bus Booking</h3>
       <p>Book cabs, and buses seamlessly through our platform for a comfortable journey.</p>
     </div>
 
     <div className="service">
-      <img src={service4 } alt="Hotel & Accommodation" className="service-image" />
+      <img src={service4 } alt="Hotel & Accommodation" className="service-image" loading="lazy"/>
       <h3>Hotel & Accommodation</h3>
       <p>We offer a wide range of hotel options, from budget to luxury, to suit your accommodation needs.</p>
     </div>
 
     <div className="service">
-      <img src={service5 } alt="Tourist Visa Assistance" className="service-image" />
+      <img src={service5 } alt="Tourist Visa Assistance" className="service-image"loading="lazy"/>
       <h3>Tourist Visa Assistance</h3>
       <p>Get expert assistance for obtaining tourist visas for various countries with our hassle-free services.</p>
     </div>
 
     <div className="service">
-      <img src={service6 } alt="Travel Insurance" className="service-image" />
+      <img src={service6 } alt="Travel Insurance" className="service-image"loading="lazy" />
       <h3>Travel Insurance</h3>
       <p>Protect your trip with our reliable travel insurance packages, covering medical emergencies and trip cancellations.</p>
     </div>
 
     <div className="service">
-      <img src={service7 } alt="Passport Services" className="service-image" />
+      <img src={service7 } alt="Passport Services" className="service-image"loading="lazy" />
       <h3>Passport Services</h3>
       <p>We assist with passport application, renewal, and other passport-related services to make your travel stress-free.</p>
     </div>
 
     <div className="service">
-      <img src={service8 } alt="Holiday Packages" className="service-image" />
+      <img src={service8 } alt="Holiday Packages" className="service-image"loading="lazy" />
       <h3>Holiday Packages</h3>
       <p>Choose from a variety of exciting holiday packages that cater to different travel interests and budgets.</p>
     </div>
@@ -269,7 +282,7 @@ const settings = {
               <img
                 src={destination.image}
                 alt={destination.alt}
-                className="destination-image"
+                className="destination-image" loading="lazy"
               />
               <div style={{ color: 'black', fontSize: '20px',backgroundColor:"grey", borderRadius:"8px" }}>
                 {destination.location}
@@ -525,7 +538,7 @@ const settings = {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2025 Copyrights by Surjeet Travel. All Rights Reserved</p>
+          <p>© 2025 Copyrights by Surgeet Travel. All Rights Reserved</p>
         </div>
       </div>
     </footer>
