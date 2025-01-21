@@ -213,8 +213,6 @@ const settings = {
 </section>
 
 
-
-
       {/* Services Section */}
       <section id="services" className="services">
       <h2>Our Services</h2>
