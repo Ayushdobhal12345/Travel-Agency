@@ -97,6 +97,16 @@ const settings = {
   ];
 
 
+  const [isHamburgerOpen, setHamburgerOpen] = useState(false);
+
+  const handleHamburgerClick = () => {
+    setHamburgerOpen(!isHamburgerOpen); // Toggle the hamburger menu
+  };
+
+  const handleLinkClick = () => {
+    setHamburgerOpen(false);
+  };
+
   
   // Change the Hero section background image every 5 seconds
   useEffect(() => {
@@ -176,21 +186,30 @@ const settings = {
 
       {/* Existing Navbar with Logo */}
       <header className="header">
-        <nav className="navbar">
-          <div className="logo">
-            <img src={logo} alt="Surgeet Travel Logo" className="logo-image" />
-            <div>Surgeet Travel</div>
-          </div>
-          <ul className="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#ourdestination">Destinations</a></li> 
-            <li><a href="#contact-container1">Contact Us</a></li> 
-            <li style={{backgroundColor:"red", paddingTop:"7px", marginTop:"-5px", borderRadius:"4px"}}><a href="#contact">Book Now</a></li>
-          </ul>
-        </nav>
-      </header>
+      <nav className="navbar">
+        <div className="logo">
+          <img src={logo} alt="Surgeet Travel Logo" className="logo-image" loading="lazy" />
+          <div>Surgeet Travel</div>
+        </div>
+
+        {/* Hamburger Icon */}
+        <div className="hamburger" onClick={handleHamburgerClick}>
+          &#9776; {/* Hamburger Icon */}
+        </div>
+
+        {/* Navigation Links */}
+        <ul className={`nav-links ${isHamburgerOpen ? 'active' : ''}`}>
+          <li><a href="#" onClick={handleLinkClick}>Home</a></li>
+          <li><a href="#about" onClick={handleLinkClick}>About</a></li>
+          <li><a href="#services" onClick={handleLinkClick}>Services</a></li>
+          <li><a href="#ourdestination" onClick={handleLinkClick}>Destinations</a></li> 
+          <li><a href="#contact-container1" onClick={handleLinkClick}>Contact Us</a></li> 
+          <li style={{ backgroundColor: "red", padding: "5px 0px 5px 0px",marginTop:"9px", borderRadius: "4px" }}>
+            <a href="#contact" onClick={handleLinkClick}>Book Now</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
       {/* Hero Section with Changing Background */}
       <section className="hero" style={{ backgroundImage: `url(${heroImages[currentHeroImage]})` ,loading:"lazy" }}>
@@ -440,7 +459,7 @@ const settings = {
 
         <div className="footer-info">
           <div className="footer-logo">
-            <a href="/" title="Home">
+            <a href="#" title="Home">
               <img src={logo} alt="Surgeet Travels" />
             </a>
             <p>
@@ -459,7 +478,7 @@ const settings = {
 
               </li>
               <li>
-                <a href="/spiritual-tour">Spiritual Tour</a>
+                <a href="#destinations">Spiritual Tour</a>
               </li>
               <li>
                 <a href="#destinations">Destination</a>

@@ -19,6 +19,78 @@ body {
   background-color: #f4f4f4;
   color: #333;
 }
+/* Top Header Styles */
+.top-header {
+  background-color: #949191; /* Dark background for contrast */
+  color: white;
+  padding: 10px 0;
+  z-index: 1000; /* Ensure it stays on top */
+  position: relative;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; /* Space between contact items */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 8px; /* Space between icon and text */
+  text-decoration: none;
+  color: white;
+  font-size: 16px; /* Adjust font size */
+}
+
+.contact-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.contact-item:hover {
+  color: #ff8c00; /* Change color on hover */
+}
+
+.contact-item:hover img {
+  filter: brightness(1.2); /* Light up icons on hover */
+}
+
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .contact-info {
+    gap: 30px; /* Reduced space between items for medium devices */
+  }
+
+  .contact-item {
+    font-size: 14px; /* Smaller text for medium devices */
+  }
+
+  .contact-item img {
+    width: 35px; /* Smaller icons for medium devices */
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info {
+    flex-direction: column; /* Stack items vertically on small screens */
+    gap: 5px; /* Reduce space between stacked items */
+  }
+
+  .contact-item {
+    font-size: 15px; /* Even smaller text for small devices */
+  }
+
+  .contact-item img {
+    width: 30px; /* Smaller icons for small devices */
+    height: 30px;
+  }
+}
 
 /* Header Styles */
 .header {
@@ -28,45 +100,137 @@ body {
   color: white;
   padding: 20px;
   z-index: 1000;
-  
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items:flex-start;
+  align-items: center;
 }
 
 .navbar .logo {
-  font-size: 150px;
+  font-size: 24px;
   font-weight: bold;
-  background-color: #403f3e;
-  width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+/* New logo-image class to style the logo as a circular image */
+.navbar .logo-image {
+  width: 70px; /* Adjust size of the logo image */
+  height: 70px; /* Make it a circle */
+  border-radius: 50%; /* Circular shape */
+  margin-right: 15px; /* Space between logo image and text */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  margin-right:200px;
 }
 
 .nav-links li {
-  margin-left:50px;
-  height:30px;
-
+  margin-left: 20px;
 }
 
 .nav-links li a {
   color: white;
   text-decoration: none;
-  font-weight: 600px;
+  font-weight: bold;
+  font-size: larger;
   padding: 8px 16px;
   border-radius: 5px;
-  
 }
 
 .nav-links li a:hover {
   background-color: #ff8c00;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Mobile Navigation */
+.nav-links.active {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 60px; /* Adjust this to your header height */
+  left: 0;
+  background-color: #333;
+  z-index: 999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.nav-links li {
+  margin: 15px 0;
+}
+
+/* Media Queries for Mobile and Tablet Screens */
+@media (max-width: 480px) {
+  /* Hide navigation links and display the hamburger icon */
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    color: white;
+  }
+
+  .nav-links.active {
+    display: block;
+    width: 40%;
+    text-align: center;
+    position: absolute;
+    top: 100px; /* Adjust based on header size */
+    left: 250px;
+    background-color: #333;
+    
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    
+  }
+  .nav-links li a{
+   font-weight: 200;
+    
+  }
+}
+@media (max-width: 768px) {
+  /* Hide navigation links and display the hamburger icon */
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    color: white;
+  }
+
+  .nav-links.active {
+    display: block;
+    width: 40%;
+    text-align: center;
+    position: absolute;
+    top: 100px; /* Adjust based on header size */
+    left: 250px;
+    background-color: #333;
+    
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    
+  }
+  .nav-links li a{
+   font-weight: 200;
+    
+  }
 }
 
 /* Hero Section */
@@ -190,7 +354,6 @@ body {
 }
 
 /* Services Section */
-/* Center the entire section */
 #services {
   display: flex;
   flex-direction: column;
@@ -313,8 +476,9 @@ body {
   background-color: white;
   padding: 30px;
   border-radius: 10px;
-  width: 300px;
+  width: 500px;
   text-align: center;
+  position: relative;
 }
 
 .popup input {
@@ -339,104 +503,83 @@ body {
   background-color: #e07b00;
 }
 
-
-
-/* Add this to your CSS file */
-.popup-overlay {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0, 0, 0, 0.5);
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.popup {
-background: white;
-padding: 20px;
-border-radius: 8px;
-position: relative;
-max-width: 400px;
-width: 100%;
-}
-
 .close-btn {
-position: absolute;
-top: -5px;
-right: -5px;
-background: transparent;
-border: none;
-font-size: 25px;
-cursor: pointer;
-color: #333;
-padding: 0;
-background-color: white;
-color:aquamarine;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  color: #333;
+  padding: 0;
+  background-color: white;
+  color: aquamarine;
 }
 
 .close-btn:hover {
-color: red;
+  color: red;
+}
+
+/* Responsive Design for Small Screens */
+
+@media  (max-width: 320px) {
+  .popup {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .popup input,
+  .popup button {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .close-btn {
+    font-size: 20px;
+  }
+}
+
+/* For small screens like smartphones (portrait) */
+@media  (max-width: 480px) {
+  .popup {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .popup input,
+  .popup button {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .close-btn {
+    font-size: 18px;
+  }
 }
 
 
-/* Header Styles */
-.header {
-  position: sticky;
-  top: 0;
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  z-index: 1000;
+/* For tablets and medium-sized screens */
+@media (max-width: 768px) {
+  .popup {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .popup input,
+  .popup button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .close-btn {
+    font-size: 20px;
+  }
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar .logo {
-  font-size: 24px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
-/* New logo-image class to style the logo as a circular image */
-.navbar .logo-image {
-  width: 70px; /* Adjust size of the logo image */
-  height: 70px; /* Make it a circle */
-  border-radius: 50%; /* Circular shape */
-  margin-right: 15px; /* Space between logo image and text */
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 5px;
-}
-
-.nav-links li a:hover {
-  background-color: #ff8c00;
-}
 
 
 /* Destination Section */
-/* Section styling for #ourdestination */
 #ourdestination h2 {
   font-size: 36px;
   font-weight: bold;
@@ -464,41 +607,7 @@ color: red;
 
 .destination-image {
   width: 100%;
-  height: 300px; /* Reduced height for smaller screens */
-  border-radius: 10px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  .destination-image {
-    height: 250px; /* Reduced height for smaller screens */
-  }
-
-  .slick-dots li button:before {
-    font-size: 12px; /* Smaller dots for mobile */
-  }
-
-  .slick-prev, .slick-next {
-    padding: 10px; /* Smaller arrows on mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  .destination-image {
-    height: 200px; /* Further reduce image height for very small screens */
-  }
-
-  .slick-prev, .slick-next {
-    font-size: 0;  /* Increased size of arrows for better visibility */
-    padding: 8px;
-  }
-}
-
-/* Styling for destination images */
-.destination-image {
-  width: 100%;
-  height: 400px;
+  height: 400px; /* Reduced height for smaller screens */
   border-radius: 10px;
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -574,29 +683,53 @@ color: red;
   color: #0f0f0f;  /* Active dot color */
 }
 
+@media (max-width: 768px) {
+  .destination-image {
+    height: 250px; /* Reduced height for smaller screens */
+  }
+
+  .slick-dots li button:before {
+    font-size: 12px; /* Smaller dots for mobile */
+  }
+
+  .slick-prev, .slick-next {
+    padding: 10px; /* Smaller arrows on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .destination-image {
+    height: 200px; /* Further reduce image height for very small screens */
+  }
+
+  .slick-prev, .slick-next {
+    font-size: 0;  /* Increased size of arrows for better visibility */
+    padding: 8px;
+  }
+}
 
 
 
 /* Fixed position icons for Call and WhatsApp */
+/* Fixed Icons Container */
 .fixed-icons {
   position: fixed;
-  bottom:-40px;
+  bottom: -40px;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-}
-.fixed-icon.call{
-  
-  margin-top: -10px;
-
+  z-index: 9999; /* Ensure the icons stay on top of other content */
 }
 
 .fixed-icon {
-  
   width: 200px;
   height: 200px;
+}
+
+.fixed-icon.call {
+  margin-top: -10px;
 }
 
 .call img,
@@ -606,49 +739,41 @@ color: red;
   object-fit: contain;
 }
 
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .fixed-icons {
+    padding: 0 15px;
+  }
 
-/* Top Header Styles */
-.top-header {
-  background-color: #949191; /* Dark background for contrast */
-  color: white;
-  padding: 10px 0;
-  z-index: 1000; /* Ensure it stays on top */
-  position: relative;
-  
+  .fixed-icon {
+    width: 150px; /* Reduce icon size for tablets */
+    height: 150px;
+  }
+
+  .fixed-icon.call {
+    margin-top: -5px; /* Adjust the margin on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .fixed-icons {
+    padding: 0 10px;
+    bottom: 20px; /* Move the icons up a bit for very small screens */
+  }
+
+  .fixed-icon {
+    width: 120px; /* Further reduce icon size for mobile */
+    height: 120px;
+  }
+
+  .fixed-icon.call {
+    margin-top: 0; /* Remove extra margin for small screens */
+  }
 }
 
 
-.contact-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px; /* Space between contact items */
- 
-}
 
-.contact-item {
-  display: flex;
-  align-items:center;
-  justify-content: space-evenly;
-  gap: 8px; /* Space between icon and text */
-  text-decoration: none;
-  color: white;
-  font-size: 16px; /* Adjust font size */
-}
 
-.contact-item img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.contact-item:hover {
-  color: #ff8c00; /* Change color on hover */
-}
-
-.contact-item:hover img {
-  filter: brightness(1.2); /* Light up icons on hover */
-}
 
 /* Scroll margin-top ensures content isn't hidden under fixed navbar */
 #about, #services,#contact-container1, #ourdestination, #contact {
@@ -968,8 +1093,9 @@ color: red;
 /* Styling for Hyperlinks */
 .contact-item1 a {
   color: #ff6f61;  /* Accent color for links */
-  text-decoration: none;
-  margin-left: -0px;
+  text-decoration:none;
+  font-size: 1em;
+  
 }
 
 .contact-item1 a:hover {
@@ -1021,7 +1147,7 @@ color: red;
   }
 
   .contact-item1 {
-    width: 90%;
+    width: 100%;
     margin: 10px 0;
     height: auto;
   }
@@ -1036,6 +1162,7 @@ color: red;
 
   .contact-item1 .contact-info p {
     font-size: 16px;
+    margin-left: 10px;
   }
 }
 
@@ -1066,7 +1193,7 @@ color: red;
 
 #why-choose-img img {
   width:90%;
-  height:65vh;
+  height:55vh;
   object-fit: cover; /* Ensures the image covers the entire container area */
   display: block;
   margin: 0 auto; /* Centers the image horizontally */
