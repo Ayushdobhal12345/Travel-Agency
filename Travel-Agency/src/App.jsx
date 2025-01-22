@@ -172,11 +172,11 @@ const settings = {
               <img src={PhoneIcon} alt="Phone" />
               <span>+91 9259247172</span>
             </a>
-            <a href="mailto:info@surgeettravel.com" className="contact-item">
+            <a href="mailto:info@surgeettravel.com" className="contact-item" >
               <img src={emailIcon} alt="Email" />
               <span>surgeettravel2004@gmail.com</span>
             </a>
-            <a href="https://www.instagram.com/surgeettravel.in" className="contact-item">
+            <a href="https://www.instagram.com/surgeettravel.in" target="_blank" className="contact-item">
               <img src={instaIcon} alt="Instagram" />
               <span>@surgeettravel.in</span>
             </a>
