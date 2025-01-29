@@ -73,8 +73,9 @@ const settings = {
     {
       breakpoint: 768, // For tablets
       settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots:false
       }
     }
   ]
@@ -164,9 +165,9 @@ const settings = {
     if (contactName && contactPhone && contactMessage) {
       saveBookingData(contactName, contactPhone, contactMessage); // Save booking data
       Swal.fire({
-        position: "Center",
+        position: "center",
         icon: "success",
-        title: "Team will Contact You Soon",
+        title: "Our team will contact you soon",
         showConfirmButton: false,
         timer: 2000
       });
@@ -177,7 +178,7 @@ const settings = {
       Swal.fire({
         position: "center",
         icon: "error",
-        title: "Fill all details",
+        title: "Please fill all details",
         showConfirmButton: false,
         timer: 2000
       });
@@ -213,7 +214,7 @@ const settings = {
       <header className="header">
       <nav className="navbar">
         <div className="logo">
-          <img src={logo} alt="Surgeet Travel Logo" className="logo-image" loading="lazy" />
+          <img src={logo} alt="Surgeet Travel Logo" className="logo-image" />
           <div>Surgeet Travel</div>
         </div>
 
@@ -336,7 +337,7 @@ const settings = {
                 alt={destination.alt}
                 className="destination-image" loading="lazy"
               />
-              <div style={{ color: 'black', fontSize: '20px',backgroundColor:"grey", borderRadius:"8px" }}>
+              <div style={{ color: 'black', fontSize: '22px',backgroundColor:"grey", borderRadius:"8px" }}>
                 {destination.location}
               </div>
             </div>
@@ -452,7 +453,7 @@ const settings = {
         <div className="footer-section">
           <div className="footer-column">
             <div className="footer-content">
-              <a href="/contact">
+              <a href="contact-container1">
                 <img
                   width="170"
                   height="170"
@@ -461,13 +462,13 @@ const settings = {
                 />
               </a>
               <h2>
-                <a href="/contact">Need any support for tour & travels?</a>
+                <a href="#contact-container1">Need any support for tour & travels?</a>
               </h2>
             </div>
           </div>
           <div className="footer-column">
             <div className="footer-content">
-              <a href="/tours">
+              <a href="#ourdestination">
                 <img
                   width="170"
                   height="167"
@@ -476,7 +477,7 @@ const settings = {
                 />
               </a>
               <h2>
-                <a href="/tours">Ready to Get Started With Vacations!</a>
+                <a href="#ourdestination">Ready to Get Started With Vacations!</a>
               </h2>
             </div>
           </div>
@@ -506,7 +507,7 @@ const settings = {
                 <a href="#destinations">Spiritual Tour</a>
               </li>
               <li>
-                <a href="#destinations">Destination</a>
+                <a href="#ourdestination">Destination</a>
               </li>
               <li>
                 <a href="#contact">Contact Us</a>
