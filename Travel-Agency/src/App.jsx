@@ -168,7 +168,7 @@ const settings = {
       <header className="top-header">
         <div className="top-navbar">
           <div className="contact-info">
-            <a href="+919259247172" className="contact-item">
+            <a href="tel:+919259247172" className="contact-item">
               <img src={PhoneIcon} alt="Phone" />
               <span>+91 9259247172</span>
             </a>
