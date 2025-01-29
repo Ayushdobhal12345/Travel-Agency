@@ -168,11 +168,11 @@ const settings = {
       <header className="top-header">
         <div className="top-navbar">
           <div className="contact-info">
-            <a href="tel:+919536534140" className="contact-item">
+            <a href="+919259247172" className="contact-item">
               <img src={PhoneIcon} alt="Phone" />
               <span>+91 9259247172</span>
             </a>
-            <a href="mailto:info@surgeettravel.com" className="contact-item" >
+            <a href="mailto:surgeettravel2004@gmail.com" className="contact-item" >
               <img src={emailIcon} alt="Email" />
               <span>surgeettravel2004@gmail.com</span>
             </a>
@@ -376,7 +376,7 @@ const settings = {
                   <div className="contact-info">
                     <strong>Call Us</strong>
                     <p>
-                      <a href="tel:+1234567890">+919259247172</a>
+                      <a href="tel:+919259247172">+919259247172</a>
                     </p>
                   </div>
                 </div>
