@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Slider from "react-slick";
+import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'; // Importing FontAwesome icons
@@ -133,10 +134,22 @@ const settings = {
     e.preventDefault();
     if (name && phone) {
       saveUserData(name, phone); // Save user data
-      alert("Your data has been submitted!");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Saved",
+        showConfirmButton: false,
+        timer: 2000
+      });
       setShowPopup(false); // Close the popup after submission
     } else {
-      alert("Please fill in both fields.");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Please fill all details",
+        showConfirmButton: false,
+        timer: 2000
+      });
     }
   };
 
@@ -150,12 +163,24 @@ const settings = {
     e.preventDefault();
     if (contactName && contactPhone && contactMessage) {
       saveBookingData(contactName, contactPhone, contactMessage); // Save booking data
-      alert("Your message has been submitted!");
+      Swal.fire({
+        position: "Center",
+        icon: "success",
+        title: "Team will Contact You Soon",
+        showConfirmButton: false,
+        timer: 2000
+      });
       setContactName('');
       setContactPhone('');
       setContactMessage('');
     } else {
-      alert("Please fill in all fields.");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Fill all details",
+        showConfirmButton: false,
+        timer: 2000
+      });
     }
   };
 
