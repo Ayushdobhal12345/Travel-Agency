@@ -10,10 +10,11 @@ import { faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-
 import { saveUserData, saveBookingData } from './firebase'; // handle popup and booking form
 
 import logo from './assets/Logo.png';
-import callIcon from './assets/phone.jpg'; // Your call icon
-import PhoneIcon from './assets/phone.webp'; // Your call icon for header
-import whatsappIcon from './assets/watsaap.png'; // Your WhatsApp icon
-import emailIcon from './assets/mail.webp'; // Email icon (example)
+import callIcon from './assets/phone.jpg'; // call icon
+import PhoneIcon from './assets/phone.webp'; // call icon for header
+import whatsappIcon from './assets/watsaap.png'; // WhatsApp icon
+import emailIcon from './assets/mail.webp'; // Emai
+// l icon (example)
 import instaIcon from './assets/insta.webp'; // Instagram icon (example)
 
 
@@ -511,6 +512,9 @@ const settings = {
               </li>
               <li>
                 <a href="#contact">Contact Us</a>
+              </li>
+              <li>
+                <a href="https://sta-travel.vercel.app/">Admin</a>
               </li>
             </ul>
           </div>
