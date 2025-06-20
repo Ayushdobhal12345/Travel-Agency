@@ -418,7 +418,7 @@ const settings = {
       {/* booking section with contact name */}
       <section id="contact" className="contact">
         <div className="contact-content">
-          <h2>Book Now </h2>
+          <h2>Contact Us </h2>
           <form onSubmit={handleContactSubmit}>
             <input 
               type="text" 
